@@ -7,6 +7,7 @@ const mapState = state => ({
 
 class SampleComponent extends Component {
     render() {
+        
         const {data} = this.props;
         
         return (
