@@ -8,14 +8,19 @@ import TabBarContainer from "./features/tabs/TabBarContainer";
 
 import './App.css';
 
+const unitIngfo = () => <div>Unit info content</div>;
+const pilots = () => <div>Pilots content</div>;
+const mechs = () => <div>Mechs content</div>;
+const unitOrganization = () => <div>Unit Organization content</div>;
+
 class App extends Component {
     render() {
 
         const tabs = [
-            { name: "unitInfo", label: "Unit Info" },
-            { name: "pilots", label: "Pilots" },
-            { name: "mechs", label: "Mechs" },
-            { name: "unitOrganization", label: "Unit Organization" }
+            { name: "unitInfo", label: "Unit Info", component : unitIngfo },
+            { name: "pilots", label: "Pilots", component : pilots },
+            { name: "mechs", label: "Mechs", component : mechs },
+            { name: "unitOrganization", label: "Unit Organization", component : unitOrganization }
         ];
 
         return (
