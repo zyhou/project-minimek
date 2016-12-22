@@ -1,5 +1,5 @@
 import React from "react";
-import {Menu} from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 import ToggleDisplay from "react-toggle-display";
 
 import Tab from "./Tab";
@@ -17,12 +17,12 @@ const TabBar = (props) => {
                 label={label}
                 active={currentTab === name}
                 onClick={onTabClick}
-            />
+                />
         );
     });
 
     const tabPanels = tabs.map(tabInfo => {
-        const {name, component : TabComponent} = tabInfo;
+        const {name, component: TabComponent} = tabInfo;
 
         return (
             <ToggleDisplay show={name === currentTab} key={name}>

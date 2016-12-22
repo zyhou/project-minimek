@@ -1,5 +1,5 @@
 import React from "react";
-import {Menu} from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 
 const Tab = ({name, label, onClick, active}) => (
     <Menu.Item
@@ -7,7 +7,7 @@ const Tab = ({name, label, onClick, active}) => (
         content={label}
         active={active}
         onClick={() => onClick(name)}
-    />
+        />
 );
 
 export default Tab;
