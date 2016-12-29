@@ -7,7 +7,7 @@ import {
     Header,
 } from "semantic-ui-react";
 
-import schema from "app/schema";
+import orm from "app/orm";
 
 import PilotsList from "../PilotsList";
 import PilotDetails from "../PilotDetails";
@@ -15,7 +15,7 @@ import PilotDetails from "../PilotDetails";
 const mapState = (state) => {
     // Create a Redux-ORM Session from our "entities" slice, which
     // contains the "tables" for each model type
-    const session = schema.from(state.entities);
+    const session = orm.session(state.entities);
 
     // Retrieve the model class that we need.  Each Session
     // specifically "binds" model classes to itself, so that
