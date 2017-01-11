@@ -70,7 +70,6 @@ export class Pilots extends Component {
 
     render() {
         const {pilots = [], selectPilot, currentPilot} = this.props;
-        const currentPilotEntry = pilots.find(pilot => pilot.id === currentPilot) || {}
 
         return (
             <Segment>
@@ -86,7 +85,7 @@ export class Pilots extends Component {
                     <Grid.Column width={6}>
                         <Header as="h3">Pilot Details</Header>
                         <Segment >
-                            <PilotDetails pilot={currentPilotEntry} />
+                            <PilotDetails />
                         </Segment>
                     </Grid.Column>
                 </Grid>
