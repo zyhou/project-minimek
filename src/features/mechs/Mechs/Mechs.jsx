@@ -44,7 +44,6 @@ const actions = {
 class Mechs extends Component {
     render() {
         const {mechs = [], selectMech, currentMech} = this.props;
-        const currentMechEntry = mechs.find(mech => mech.id === currentMech) || {};
 
         return (
             <Segment>
@@ -60,7 +59,7 @@ class Mechs extends Component {
                     <Grid.Column width={6}>
                         <Header as="h3">Mech Details</Header>
                         <Segment >
-                            <MechDetails mech={currentMechEntry} />
+                            <MechDetails />
                         </Segment>
                     </Grid.Column>
                 </Grid>
