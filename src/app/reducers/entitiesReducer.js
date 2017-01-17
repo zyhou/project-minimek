@@ -16,10 +16,10 @@ export function loadData(state, payload) {
 
     // Clear out any existing models from state so that we can avoid
     // conflicts from the new data coming in if data is reloaded
-    [Pilot, Mech, MechDesign].forEach(modelType => {
-        modelType.all().withModels.forEach(model => model.delete());
-        session.state = session.reduce();
-    });
+    // [Pilot, Mech, MechDesign].forEach(modelType => {
+    //     modelType.all().toModelArray().forEach(model => model.delete());
+    //     session.state = session.reduce();
+    // });
 
     // Queue up creation commands for each entry
     pilots.forEach(pilot => Pilot.parse(pilot));
