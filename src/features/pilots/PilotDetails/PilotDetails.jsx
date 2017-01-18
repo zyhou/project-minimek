@@ -66,13 +66,21 @@ const actions = {
 }
 
 export class PilotDetails extends Component {
-
-    onNameChanged = (e) => {
+    onInputChanged = (e) => {
         const newValues = getValueFromEvent(e);
         const {id} = this.props.pilot;
 
         this.props.updateEntity("Pilot", id, newValues);
     }
+
+    onDropdownChanged = (e, result) => {
+        const {name, value} = result;
+        const newValues = { [name]: value };
+        const {id} = this.props.pilot;
+
+        this.props.updateEntity("Pilot", id, newValues);
+    }
+
 
     render() {
         const {pilot = {}, pilotIsSelected = false, isEditingPilot = false, ...actions } = this.props;
@@ -93,12 +101,12 @@ export class PilotDetails extends Component {
             <Form size="large">
                 <Form.Field
                     name="name"
-                    label="name"
+                    label="Name"
                     width={16}
                     placeholder="Name"
                     value={name}
                     disabled={!canStopEditing}
-                    onChange={this.onNameChanged}
+                    onChange={this.onInputChanged}
                     control="input"
                     />
                 <Form.Field
@@ -110,6 +118,7 @@ export class PilotDetails extends Component {
                     selection
                     options={RANKS}
                     value={rank}
+                    onChange={this.onDropdownChanged}
                     disabled={!canStopEditing}
                     />
                 <Form.Field
@@ -119,6 +128,7 @@ export class PilotDetails extends Component {
                     placeholder="Age"
                     control="input"
                     value={age}
+                    onChange={this.onInputChanged}
                     disabled={!canStopEditing}
                     />
                 <Form.Field
@@ -130,6 +140,7 @@ export class PilotDetails extends Component {
                     selection
                     options={SKILL_VALUES}
                     value={gunnery}
+                    onChange={this.onDropdownChanged}
                     disabled={!canStopEditing}
                     />
                 <Form.Field
@@ -141,11 +152,12 @@ export class PilotDetails extends Component {
                     selection
                     options={SKILL_VALUES}
                     value={piloting}
+                    onChange={this.onDropdownChanged}
                     disabled={!canStopEditing}
                     />
                 <Form.Field
                     name="mech"
-                    label="mech"
+                    label="Mech"
                     width={16}
                     control={Dropdown}
                     fluid
@@ -162,7 +174,7 @@ export class PilotDetails extends Component {
                         onClick={actions.startEditingPilot}
                         >
                         Start Editing
-                </Button>
+                    </Button>
                     <Button
                         secondary
                         disabled={!canStopEditing}
@@ -170,9 +182,9 @@ export class PilotDetails extends Component {
                         onClick={actions.stopEditingPilot}
                         >
                         Stop Editing
-                </Button>
+                    </Button>
                 </Grid.Row>
-            </Form >
+            </Form>
         );
     }
 }
