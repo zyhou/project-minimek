@@ -2,6 +2,8 @@ import { combineReducers } from "redux";
 
 import { reduceReducers } from "common/utils/reducerUtils";
 
+import entityCrudReducer from "features/entities/entityReducer";
+
 import entitiesReducer from "./entitiesReducer";
 import tabReducer from "features/tabs/tabReducer";
 import unitInfoReducer from "features/unitInfo/unitInfoReducer";
@@ -18,6 +20,7 @@ const combinedReducer = combineReducers({
 
 const rootReducer = reduceReducers(
     combinedReducer,
+    entityCrudReducer
 );
 
 export default rootReducer;
