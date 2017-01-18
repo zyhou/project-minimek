@@ -2,12 +2,12 @@ import { ENTITY_UPDATE } from "./entityConstants";
 
 import { createConditionalSliceReducer } from "common/utils/reducerUtils";
 
-import schema from "app/schema";
+import orm from "app/orm";
 
 export function updateEntity(state, payload) {
     const {itemType, itemID, newItemAttributes} = payload;
 
-    const session = schema.from(state);
+    const session = orm.session(state);
     const ModelClass = session[itemType];
 
     let newState = state;
