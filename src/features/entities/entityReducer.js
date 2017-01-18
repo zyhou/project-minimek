@@ -17,7 +17,7 @@ export function updateEntity(state, payload) {
 
         modelInstance.update(newItemAttributes);
 
-        newState = session.reduce();
+        newState = session.state;
     }
 
     return newState;
